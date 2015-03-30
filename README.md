@@ -3,7 +3,7 @@
 > Fork of original [Swipe](https://github.com/thebird/Swipe) in order to be published to NPM (has no deps) and being compatible with isomorphic apps. Install it like:
 
 ```bash
-npm install swipejs
+npm install swipe-js-iso
 ```
 
 _Hint: Use [ReactSwipe](https://github.com/voronianski/react-swipe) component with [React](https://facebook.github.io/react)._
