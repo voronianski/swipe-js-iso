@@ -1,6 +1,6 @@
 /*global module */
 module.exports = function( grunt ) {
-  
+
   'use strict';
 
   grunt.initConfig({
@@ -13,7 +13,7 @@ module.exports = function( grunt ) {
       },
       dist: {
         files: {
-          'build/swipe.min.js': 'swipe.js'
+          'swipe.min.js': 'swipe.js'
         }
       }
     }
