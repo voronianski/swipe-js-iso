@@ -104,12 +104,12 @@ Swipe is now compatible with all browsers, including IE7+. Swipe works best on d
 
 ## Who's using Swipe
 
-<img src='https://raw.githubusercontent.com/voronianski/Swipe/master/assets/cnn.png' width='170'>
+<img src='https://raw.githubusercontent.com/voronianski/Swipe/master/assets/cnn.png' width='80'>
 <img src='https://raw.githubusercontent.com/voronianski/Swipe/master/assets/airbnb.png' width='170'>
-<img src='https://raw.githubusercontent.com/voronianski/Swipe/master/assets/swipe-nhl.png' width='170'>
-<img src='https://raw.githubusercontent.com/voronianski/Swipe/master/assets/swipe-htc.png' width='170'>
-<img src='https://raw.githubusercontent.com/voronianski/Swipe/master/assets/swipe-thinkgeek.png' width='170'>
-<img src='https://raw.githubusercontent.com/voronianski/Swipe/master/assets/swipe-snapguide.png' width='170'>
+<img src='https://raw.githubusercontent.com/voronianski/Swipe/master/assets/nhl.png' width='170'>
+<img src='https://raw.githubusercontent.com/voronianski/Swipe/master/assets/htc.png' width='170'>
+<img src='https://raw.githubusercontent.com/voronianski/Swipe/master/assets/thinkgeek.png' width='170'>
+<img src='https://raw.githubusercontent.com/voronianski/Swipe/master/assets/snapguide.png' width='170'>
 
 ## License
 
