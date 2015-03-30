@@ -1,6 +1,6 @@
 # Swipe
 
-> Fork of original [Swipe](https://github.com/thebird/Swipe) in order to be published to NPM and being compatible with isomorphic apps.
+> Fork of original [Swipe](https://github.com/thebird/Swipe) in order to be published to NPM (has no deps) and being compatible with isomorphic apps. Install it like:
 
 ```bash
 npm install swipejs
@@ -104,12 +104,12 @@ Swipe is now compatible with all browsers, including IE7+. Swipe works best on d
 
 ## Who's using Swipe
 
-<!-- <img src='http://swipejs.com/assets/swipe-cnn.png' width='170'>
-<img src='http://swipejs.com/assets/swipe-airbnb.png' width='170'>
-<img src='http://swipejs.com/assets/swipe-nhl.png' width='170'>
-<img src='http://swipejs.com/assets/swipe-htc.png' width='170'>
-<img src='http://swipejs.com/assets/swipe-thinkgeek.png' width='170'>
-<img src='http://swipejs.com/assets/swipe-snapguide.png' width='170'> -->
+<img src='https://raw.githubusercontent.com/voronianski/Swipe/master/assets/cnn.png' width='170'>
+<img src='https://raw.githubusercontent.com/voronianski/Swipe/master/assets/airbnb.png' width='170'>
+<img src='https://raw.githubusercontent.com/voronianski/Swipe/master/assets/swipe-nhl.png' width='170'>
+<img src='https://raw.githubusercontent.com/voronianski/Swipe/master/assets/swipe-htc.png' width='170'>
+<img src='https://raw.githubusercontent.com/voronianski/Swipe/master/assets/swipe-thinkgeek.png' width='170'>
+<img src='https://raw.githubusercontent.com/voronianski/Swipe/master/assets/swipe-snapguide.png' width='170'>
 
 ## License
 
