@@ -6,6 +6,8 @@
 npm install swipejs
 ```
 
+_Hint: Use [ReactSwipe](https://github.com/voronianski/react-swipe) component with [React](https://facebook.github.io/react)._
+
 ## Usage
 
 Swipe only needs to follow a simple pattern. Here is an example:
