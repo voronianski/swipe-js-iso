@@ -6,7 +6,7 @@
 npm install swipe-js-iso
 ```
 
-_Hint: Use [ReactSwipe](https://github.com/voronianski/react-swipe) component with [React](https://facebook.github.io/react)._
+_PRO HINT:_ Use [ReactSwipe](https://github.com/jed/react-swipe) component with [React](https://facebook.github.io/react).
 
 ## Usage
 
@@ -106,12 +106,12 @@ Swipe is now compatible with all browsers, including IE7+. Swipe works best on d
 
 ## Who's using Swipe
 
-<img src='https://raw.githubusercontent.com/voronianski/Swipe/master/assets/cnn.png' width='80'>
-<img src='https://raw.githubusercontent.com/voronianski/Swipe/master/assets/airbnb.png' width='170'>
-<img src='https://raw.githubusercontent.com/voronianski/Swipe/master/assets/nhl.png' height='80'>
-<img src='https://raw.githubusercontent.com/voronianski/Swipe/master/assets/htc.png' height='80'>
-<img src='https://raw.githubusercontent.com/voronianski/Swipe/master/assets/thinkgeek.png' height='80'>
-<img src='https://raw.githubusercontent.com/voronianski/Swipe/master/assets/snapguide.png' height='80'>
+<img src='https://raw.githubusercontent.com/voronianski/swipe-js-iso/master/assets/cnn.png' width='80'>
+<img src='https://raw.githubusercontent.com/voronianski/swipe-js-iso/master/assets/airbnb.png' width='170'>
+<img src='https://raw.githubusercontent.com/voronianski/swipe-js-iso/master/assets/nhl.png' height='80'>
+<img src='https://raw.githubusercontent.com/voronianski/swipe-js-iso/master/assets/htc.png' height='80'>
+<img src='https://raw.githubusercontent.com/voronianski/swipe-js-iso/master/assets/thinkgeek.png' height='80'>
+<img src='https://raw.githubusercontent.com/voronianski/swipe-js-iso/master/assets/snapguide.png' height='80'>
 
 ## License
 
