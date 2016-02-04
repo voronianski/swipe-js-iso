@@ -1,4 +1,4 @@
-# Swipe
+# Universal (a.k.a isomorphic) Swipe.js
 
 [![npm version](http://badge.fury.io/js/swipe-js-iso.svg)](http://badge.fury.io/js/swipe-js-iso)
 [![Download Count](http://img.shields.io/npm/dm/swipe-js-iso.svg?style=flat)](http://www.npmjs.com/package/swipe-js-iso)
