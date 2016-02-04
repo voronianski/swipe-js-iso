@@ -1,5 +1,8 @@
 # Swipe
 
+[![npm version](http://badge.fury.io/js/swipe-js-iso.svg)](http://badge.fury.io/js/swipe-js-iso)
+[![Download Count](http://img.shields.io/npm/dm/swipe-js-iso.svg?style=flat)](http://www.npmjs.com/package/swipe-js-iso)
+
 > Fork of original [Swipe](https://github.com/thebird/Swipe) in order to be published to NPM (has no deps) and being compatible with isomorphic apps. Install it like:
 
 ```bash
