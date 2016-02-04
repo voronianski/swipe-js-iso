@@ -10,7 +10,7 @@
     "url": "git+https://github.com/voronianski/swipe-js-iso.git"
   },
   "license": "MIT",
-  "homepage": "https://github.com/voronianski/swipe-js-iso#readme"
+  "homepage": "https://github.com/voronianski/swipe-js-iso#readme",
   "dependencies": {},
   "devDependencies": {
     "grunt": "~0.4.1",
