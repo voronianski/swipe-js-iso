@@ -68,6 +68,8 @@ Swipe can take an optional second parameter– an object of key/value settings:
 
 - **stopPropagation** Boolean *(default:false)* - stop event propagation
  
+- **swiping** Function - invoked while swiping with the percentage (0-1) of the full width that has been swiped.
+
 -	**callback** Function - runs at slide change.
 
 - **transitionEnd** Function - runs at the end slide transition.
