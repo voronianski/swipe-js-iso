@@ -340,6 +340,7 @@
             translate(index, delta.x + slidePos[index], 0);
             translate(index+1, delta.x + slidePos[index+1], 0);
           }
+          options.swiping && options.swiping(-delta.x / width);
 
         }
 
