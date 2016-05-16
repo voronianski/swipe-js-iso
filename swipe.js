@@ -422,8 +422,6 @@
           }
 
         }
-        
-        delay = options.auto || 0;
 
         // kill touchmove and touchend event listeners until touchstart called again
         element.removeEventListener('touchmove', events, false);
