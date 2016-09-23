@@ -223,7 +223,8 @@
     var interval;
 
     function begin() {
-
+      // reset delay value after exec stop()
+      delay = delay || options.auto;
       interval = setTimeout(next, delay);
 
     }
@@ -479,28 +480,34 @@
         setup();
 
       },
-      slide: function(to, speed) {
+      slide: function(to, speed, restart) {
 
         // cancel slideshow
         stop();
 
         slide(to, speed);
 
+        restart && setTimeout(begin, options.auto || 0);
+
       },
-      prev: function() {
+      prev: function(restart) {
 
         // cancel slideshow
         stop();
 
         prev();
 
+        restart && setTimeout(begin, options.auto || 0);
+
       },
-      next: function() {
+      next: function(restart) {
 
         // cancel slideshow
         stop();
 
         next();
+
+        restart && setTimeout(begin, options.auto || 0);
 
       },
       stop: function() {
