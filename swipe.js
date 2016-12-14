@@ -220,7 +220,7 @@
 
     // setup auto slideshow
     var delay = options.auto || 0;
-    var interval;
+    var interval = null;
 
     function begin() {
 
@@ -228,11 +228,16 @@
 
     }
 
-    function stop() {
+    function restart () {
+      if (interval !== null) return:
+      delay = options.auto || 0;
+      interval = setTimeout(next, delay);
+    }
 
+    function stop() {
       delay = 0;
       clearTimeout(interval);
-
+      interval = null;
     }
 
 
@@ -502,6 +507,9 @@
 
         next();
 
+      },
+      restart: function() {
+        restart();
       },
       stop: function() {
 
