@@ -426,6 +426,7 @@
         // kill touchmove and touchend event listeners until touchstart called again
         element.removeEventListener('touchmove', events, false);
         element.removeEventListener('touchend', events, false);
+        element.removeEventListener('touchforcechange', function() {}, false);
 
       },
       transitionEnd: function(event) {
@@ -453,7 +454,10 @@
     if (browser.addEventListener) {
 
       // set touchstart event on element
-      if (browser.touch) element.addEventListener('touchstart', events, false);
+      if (browser.touch) {
+        element.addEventListener('touchstart', events, false);
+        element.addEventListener('touchforcechange', function() {}, false);
+      }
 
       if (browser.transitions) {
         element.addEventListener('webkitTransitionEnd', events, false);
