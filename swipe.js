@@ -229,7 +229,7 @@
     }
 
     function restart () {
-      if (interval !== null) return:
+      if (interval !== null) return;
       delay = options.auto || 0;
       interval = setTimeout(next, delay);
     }
