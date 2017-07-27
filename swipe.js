@@ -223,7 +223,7 @@
     var interval;
 
     function begin() {
-
+      clearTimeout(interval);
       interval = setTimeout(next, delay);
 
     }
