@@ -559,6 +559,10 @@
         } else {
           window.onresize = null;
         }
+      },
+      preventScrolling: function (shouldScroll) {
+        stop();
+        options.disableScroll = shouldScroll;
       }
     };
   };
