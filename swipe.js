@@ -38,7 +38,7 @@
     options = options || {};
     var index = parseInt(options.startSlide, 10) || 0;
     var speed = options.speed || 300;
-    var sidePadding = parseInt(options.sidePadding, 10) || 0;
+    var widthOfSiblingSlidePreview = parseInt(options.widthOfSiblingSlidePreview, 10) || 0;
     var continuous = options.continuous = options.continuous !== undefined ? options.continuous : true;
 
     function setup() {
@@ -61,7 +61,7 @@
       slidePos = new Array(slides.length);
 
       // determine width of each slide
-      width = Math.round(container.getBoundingClientRect().width || container.offsetWidth) - sidePadding * 2;
+      width = Math.round(container.getBoundingClientRect().width || container.offsetWidth) - widthOfSiblingSlidePreview * 2;
 
       element.style.width = (slides.length * width) + 'px';
 
@@ -75,7 +75,7 @@
         slide.setAttribute('data-index', pos);
 
         if (browser.transitions) {
-          slide.style.left = (pos * -width) + sidePadding + 'px';
+          slide.style.left = (pos * -width) + widthOfSiblingSlidePreview + 'px';
           move(pos, index > pos ? -width : (index < pos ? width : 0), 0);
         }
 
@@ -87,7 +87,7 @@
         move(circle(index+1), width, 0);
       }
 
-      if (!browser.transitions) element.style.left = (index * -width) + sidePadding + 'px';
+      if (!browser.transitions) element.style.left = (index * -width) + widthOfSiblingSlidePreview + 'px';
 
       container.style.visibility = 'visible';
 
