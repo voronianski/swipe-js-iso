@@ -105,7 +105,7 @@ Swipe exposes a few functions that can be useful for script control of your slid
 
 `slide(index, duration)` slide to set index position (duration: speed of transition in milliseconds)
 
-`disableScrolling(disableScroll)` directly control scrolling (disableScroll: ```true``` to prevent scrolling, ```false``` to enable (default:false) )
+`disableScrolling(disableScroll)` directly control scrolling (disableScroll: same as the config option )
 
 ## Browser Support
 
