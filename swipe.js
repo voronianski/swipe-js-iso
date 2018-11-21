@@ -124,8 +124,7 @@ function Swipe(container, options) {
         'OTransition',
         'msTransition'
       ];
-      for (var i in props)
-        if (temp.style[props[i]] !== undefined) return true;
+      for (var i in props) if (temp.style[props[i]] !== undefined) return true;
       return false;
     })(document.createElement('swipe'))
   };
@@ -385,9 +384,7 @@ function Swipe(container, options) {
 
       // determine if scrolling test has run - one time test
       if (typeof isScrolling == 'undefined') {
-        isScrolling = !!(
-          isScrolling || Math.abs(delta.x) < Math.abs(delta.y)
-        );
+        isScrolling = !!(isScrolling || Math.abs(delta.x) < Math.abs(delta.y));
       }
 
       // if user is not trying to scroll vertically
@@ -464,11 +461,7 @@ function Swipe(container, options) {
             }
 
             move(index, slidePos[index] - width, speed);
-            move(
-              circle(index + 1),
-              slidePos[circle(index + 1)] - width,
-              speed
-            );
+            move(circle(index + 1), slidePos[circle(index + 1)] - width, speed);
             index = circle(index + 1);
           } else {
             if (continuous) {
@@ -481,11 +474,7 @@ function Swipe(container, options) {
             }
 
             move(index, slidePos[index] + width, speed);
-            move(
-              circle(index - 1),
-              slidePos[circle(index - 1)] + width,
-              speed
-            );
+            move(circle(index - 1), slidePos[circle(index - 1)] + width, speed);
             index = circle(index - 1);
           }
 
@@ -548,7 +537,7 @@ function Swipe(container, options) {
     }; // to play nice with old IE
   }
 
-    // expose the Swipe API
+  // expose the Swipe API
   return {
     setup: function() {
       setup();
