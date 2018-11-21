@@ -2,6 +2,7 @@
 
 [![npm version](http://badge.fury.io/js/swipe-js-iso.svg)](http://badge.fury.io/js/swipe-js-iso)
 [![Download Count](http://img.shields.io/npm/dm/swipe-js-iso.svg?style=flat)](http://www.npmjs.com/package/swipe-js-iso)
+<a href="https://www.buymeacoffee.com/voronianski" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" height="20" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
 
 > Fork of original [Swipe](https://github.com/thebird/Swipe) in order to be published to NPM (has no deps) and being compatible with isomorphic apps. Install it like:
 
@@ -15,9 +16,9 @@ _PRO HINT:_ Use [ReactSwipe](https://github.com/jed/react-swipe) component with 
 
 Swipe only needs to follow a simple pattern. Here is an example:
 
-``` html
-<div id='slider' class='swipe'>
-  <div class='swipe-wrap'>
+```html
+<div id="slider" class="swipe">
+  <div class="swipe-wrap">
     <div></div>
     <div></div>
     <div></div>
@@ -27,7 +28,7 @@ Swipe only needs to follow a simple pattern. Here is an example:
 
 Above is the initial required structure– a series of elements wrapped in two containers. Place any content you want within the items. The containing div will need to be passed to the Swipe function like so:
 
-``` js
+```js
 window.mySwipe = Swipe(document.getElementById('slider'));
 ```
 
@@ -35,7 +36,7 @@ I always place this at the bottom of the page, externally, to verify the page is
 
 Also Swipe needs just a few styles added to your stylesheet:
 
-``` css
+```css
 .swipe {
   overflow: hidden;
   visibility: hidden;
@@ -46,8 +47,8 @@ Also Swipe needs just a few styles added to your stylesheet:
   position: relative;
 }
 .swipe-wrap > div {
-  float:left;
-  width:100%;
+  float: left;
+  width: 100%;
   position: relative;
 }
 ```
@@ -56,28 +57,27 @@ Also Swipe needs just a few styles added to your stylesheet:
 
 Swipe can take an optional second parameter– an object of key/value settings:
 
-- **startSlide** Integer *(default:0)* - index position Swipe should start at
+- **startSlide** Integer _(default:0)_ - index position Swipe should start at
 
--	**speed** Integer *(default:300)* - speed of prev and next transitions in milliseconds.
+- **speed** Integer _(default:300)_ - speed of prev and next transitions in milliseconds.
 
 - **auto** Integer - begin with auto slideshow (time in milliseconds between slides)
 
-- **continuous** Boolean *(default:true)* - create an infinite feel with no endpoints
+- **continuous** Boolean _(default:true)_ - create an infinite feel with no endpoints
 
-- **disableScroll** Boolean *(default:false)* - stop any touches on this container from scrolling the page
+- **disableScroll** Boolean _(default:false)_ - stop any touches on this container from scrolling the page
 
-- **stopPropagation** Boolean *(default:false)* - stop event propagation
- 
+- **stopPropagation** Boolean _(default:false)_ - stop event propagation
+
 - **swiping** Function - invoked while swiping with the percentage (0-1) of the full width that has been swiped.
 
--	**callback** Function - runs at slide change.
+- **callback** Function - runs at slide change.
 
 - **transitionEnd** Function - runs at the end slide transition.
 
 ### Example
 
-``` js
-
+```js
 window.mySwipe = new Swipe(document.getElementById('slider'), {
   startSlide: 2,
   speed: 400,
@@ -88,7 +88,6 @@ window.mySwipe = new Swipe(document.getElementById('slider'), {
   callback: function(index, elem) {},
   transitionEnd: function(index, elem) {}
 });
-
 ```
 
 ## Swipe API
