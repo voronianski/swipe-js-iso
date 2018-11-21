@@ -4,17 +4,19 @@
 [![Download Count](http://img.shields.io/npm/dm/swipe-js-iso.svg?style=flat)](http://www.npmjs.com/package/swipe-js-iso)
 <a href="https://www.buymeacoffee.com/voronianski" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" height="20" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
 
-> Fork of original [Swipe](https://github.com/thebird/Swipe) in order to be published to NPM (has no deps) and being compatible with isomorphic apps. Install it like:
+> Fork of original [Swipe](https://github.com/thebird/Swipe) in order to be published to NPM (has no deps) and being compatible with universal apps.
+
+# Install
 
 ```bash
 npm install swipe-js-iso --save
 ```
 
-**✅ PRO HINT:** Use [ReactSwipe](https://github.com/jed/react-swipe) component with [React](https://facebook.github.io/react).
+**✅ PRO HINT:** Use [ReactSwipe](https://github.com/jed/react-swipe) component
 
 ## Usage
 
-Swipe only needs to follow a simple pattern. Here is an example:
+Swipe only needs to follow a simple layout pattern. Here is an example:
 
 ```html
 <div id="slider" class="swipe">
@@ -26,10 +28,10 @@ Swipe only needs to follow a simple pattern. Here is an example:
 </div>
 ```
 
-Above is the initial required structure– a series of elements wrapped in two containers. Place any content you want within the items. The containing div will need to be passed to the Swipe function like so:
+Above is the initial required structure – a series of elements wrapped in two containers. Place any content you want within the items. The containing div will need to be passed to the Swipe function like so:
 
 ```js
-window.mySwipe = Swipe(document.getElementById('slider'));
+const mySwipe = Swipe(document.getElementById('slider'));
 ```
 
 I always place this at the bottom of the page, externally, to verify the page is ready.
@@ -78,7 +80,7 @@ Swipe can take an optional second parameter– an object of key/value settings:
 ### Example
 
 ```js
-window.mySwipe = new Swipe(document.getElementById('slider'), {
+const mySwipe = new Swipe(document.getElementById('slider'), {
   startSlide: 2,
   speed: 400,
   auto: 3000,
