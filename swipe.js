@@ -524,6 +524,9 @@
         // return total number of slides
         return length;
       },
+      disableScrolling: function (disableScroll) {
+        options.disableScroll = disableScroll
+      },
       kill: function() {
 
         // cancel slideshow
