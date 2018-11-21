@@ -1,6 +1,6 @@
 {
   "name": "swipe-js-iso",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "main": "swipe.js",
   "scripts": {
     "build": "npm run build:prod && npm run build:dev",
