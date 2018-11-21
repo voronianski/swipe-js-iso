@@ -1,10 +1,8 @@
 /*global module */
-module.exports = function( grunt ) {
-
+module.exports = function(grunt) {
   'use strict';
 
   grunt.initConfig({
-
     uglify: {
       options: {
         mangle: {
@@ -17,7 +15,6 @@ module.exports = function( grunt ) {
         }
       }
     }
-
   });
 
   // build
