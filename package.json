@@ -1,9 +1,11 @@
 {
   "name": "swipe-js-iso",
-  "version": "2.0.4",
+  "version": "2.1.0",
   "main": "swipe.js",
   "scripts": {
-    "build": "grunt",
+    "build": "npm run build:prod && npm run build:dev",
+    "build:prod": "NODE_ENV=production webpack --config webpack.config --colors",
+    "build:dev": "webpack --config webpack.config --colors",
     "prepublishOnly": "npm run build"
   },
   "repository": {
@@ -22,11 +24,12 @@
     }
   },
   "devDependencies": {
-    "grunt": "~0.4.1",
-    "grunt-contrib-uglify": "~0.2.4",
     "husky": "^1.2.0",
     "prettier": "^1.15.2",
-    "pretty-quick": "^1.8.0"
+    "pretty-quick": "^1.8.0",
+    "uglifyjs-webpack-plugin": "^2.0.1",
+    "webpack": "^4.26.0",
+    "webpack-cli": "^3.1.2"
   },
   "engines": {
     "node": "^8.0.0",

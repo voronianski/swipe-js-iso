@@ -7,10 +7,10 @@
 > Fork of original [Swipe](https://github.com/thebird/Swipe) in order to be published to NPM (has no deps) and being compatible with isomorphic apps. Install it like:
 
 ```bash
-npm install swipe-js-iso
+npm install swipe-js-iso --save
 ```
 
-_PRO HINT:_ Use [ReactSwipe](https://github.com/jed/react-swipe) component with [React](https://facebook.github.io/react).
+**✅ PRO HINT:** Use [ReactSwipe](https://github.com/jed/react-swipe) component with [React](https://facebook.github.io/react).
 
 ## Usage
 
@@ -119,6 +119,6 @@ Swipe is now compatible with all browsers, including IE7+. Swipe works best on d
 <img src='https://raw.githubusercontent.com/voronianski/swipe-js-iso/master/assets/thinkgeek.png' height='80'>
 <img src='https://raw.githubusercontent.com/voronianski/swipe-js-iso/master/assets/snapguide.png' height='80'>
 
-## License
+---
 
-Copyright (c) 2013-2015 Brad Birdsall Licensed under the [The MIT License (MIT)](http://opensource.org/licenses/MIT).
+**MIT License**
