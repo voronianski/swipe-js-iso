@@ -15,7 +15,7 @@ module.exports = {
 
   output: {
     path: path.join(__dirname, './'),
-    filename: isProduction ? `swipe.min.js` : `swipe.js`,
+    filename: isProduction ? 'swipe.min.js' : 'swipe.js',
     library: 'Swipe',
     libraryTarget: 'umd'
   },
