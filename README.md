@@ -63,6 +63,8 @@ Swipe can take an optional second parameter– an object of key/value settings:
 
 - **speed** Integer _(default:300)_ - speed of prev and next transitions in milliseconds.
 
+- **widthOfSiblingSlidePreview** Integer - Width of next and previous slide preview in pixels
+
 - **auto** Integer - begin with auto slideshow (time in milliseconds between slides)
 
 - **continuous** Boolean _(default:true)_ - create an infinite feel with no endpoints
@@ -83,6 +85,7 @@ Swipe can take an optional second parameter– an object of key/value settings:
 const mySwipe = new Swipe(document.getElementById('slider'), {
   startSlide: 2,
   speed: 400,
+  widthOfSiblingSlidePreview: 10,
   auto: 3000,
   continuous: true,
   disableScroll: false,
