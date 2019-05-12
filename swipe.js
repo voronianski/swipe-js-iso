@@ -48,7 +48,7 @@
     var slides, slidePos, width, length;
     options = options || {};
     var index = parseInt(options.startSlide, 10) || 0;
-    var speed = options.speed || 300;
+    var speed = options.speed === undefined ? 300 : options.speed;
     var widthOfSiblingSlidePreview =
       parseInt(options.widthOfSiblingSlidePreview, 10) || 0;
     var continuous = (options.continuous =
@@ -100,14 +100,14 @@
       container.style.visibility = 'visible';
     }
 
-    function prev() {
-      if (continuous) slide(index - 1);
-      else if (index) slide(index - 1);
+    function prev(slideSpeed) {
+      if (continuous) slide(index - 1, slideSpeed);
+      else if (index) slide(index - 1, slideSpeed);
     }
 
-    function next() {
-      if (continuous) slide(index + 1);
-      else if (index < slides.length - 1) slide(index + 1);
+    function next(slideSpeed) {
+      if (continuous) slide(index + 1, slideSpeed);
+      else if (index < slides.length - 1) slide(index + 1, slideSpeed);
     }
 
     function circle(index) {
@@ -116,6 +116,8 @@
     }
 
     function slide(to, slideSpeed) {
+      slideSpeed = slideSpeed === undefined ? speed : slideSpeed;
+
       // do nothing if already on requested slide
       if (index == to) return;
 
@@ -469,17 +471,17 @@
 
         slide(to, speed);
       },
-      prev: function() {
+      prev: function(speed) {
         // cancel slideshow
         stop();
 
-        prev();
+        prev(speed);
       },
-      next: function() {
+      next: function(speed) {
         // cancel slideshow
         stop();
 
-        next();
+        next(speed);
       },
       stop: function() {
         // cancel slideshow

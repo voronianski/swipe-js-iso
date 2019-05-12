@@ -99,15 +99,15 @@ const mySwipe = new Swipe(document.getElementById('slider'), {
 
 Swipe exposes a few functions that can be useful for script control of your slider.
 
-`prev()` slide to prev
+`prev([duration])` slide to prev (duration: speed of transition in milliseconds)
 
-`next()` slide to next
+`next([duration])` slide to next (duration: speed of transition in milliseconds)
 
 `getPos()` returns current slide index position
 
 `getNumSlides()` returns the total amount of slides
 
-`slide(index, duration)` slide to set index position (duration: speed of transition in milliseconds)
+`slide(index, [duration])` slide to set index position (duration: speed of transition in milliseconds)
 
 `disableScrolling(disableScroll)` directly control scrolling (disableScroll: same as the config option )
 
