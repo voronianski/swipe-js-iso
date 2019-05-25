@@ -48,7 +48,7 @@
     var slides, slidePos, width, length;
     options = options || {};
     var index = parseInt(options.startSlide, 10) || 0;
-    var speed = options.speed === undefined ? 300 : options.speed;
+    var speed = getSlideSpeed(options.speed);
     var widthOfSiblingSlidePreview =
       parseInt(options.widthOfSiblingSlidePreview, 10) || 0;
     var continuous = (options.continuous =
@@ -100,6 +100,11 @@
       container.style.visibility = 'visible';
     }
 
+    function getSlideSpeed(speed, defaultSpeed) {
+      defaultSpeed = defaultSpeed || 300;
+      return !isNaN(speed) ? Number(speed) : defaultSpeed;
+    }
+
     function prev(slideSpeed) {
       if (continuous) slide(index - 1, slideSpeed);
       else if (index) slide(index - 1, slideSpeed);
@@ -116,7 +121,7 @@
     }
 
     function slide(to, slideSpeed) {
-      slideSpeed = slideSpeed === undefined ? speed : slideSpeed;
+      slideSpeed = getSlideSpeed(slideSpeed, speed);
 
       // do nothing if already on requested slide
       if (index == to) return;
@@ -147,13 +152,13 @@
 
         to = circle(to);
 
-        move(index, width * direction, slideSpeed || speed);
-        move(to, 0, slideSpeed || speed);
+        move(index, width * direction, slideSpeed);
+        move(to, 0, slideSpeed);
 
         if (continuous) move(circle(to - direction), -(width * direction), 0); // we need to get the next in place
       } else {
         to = circle(to);
-        animate(index * -width, to * -width, slideSpeed || speed);
+        animate(index * -width, to * -width, slideSpeed);
         //no fallback for a circular continuous if the browser does not accept transitions
       }
 
