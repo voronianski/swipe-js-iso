@@ -79,6 +79,10 @@
       while (pos--) {
         var slide = slides[pos];
 
+        if (widthOfSiblingSlidePreview > 0) {
+          slide.style.zIndex = pos === 1 ? 10 : 9;
+        }
+
         slide.style.width = width + 'px';
         slide.setAttribute('data-index', pos);
 
@@ -115,9 +119,27 @@
       return (slides.length + (index % slides.length)) % slides.length;
     }
 
+    function stackSlides() {
+      // when previewing previous/next slide, the right slide zIndex makes last slide show instead of actual next
+      // this could be solved by moving other slides further away, but z-index seemed easier at the time
+      var leftSlide = slides[to - 1];
+      var midSlide = slides[to];
+      var rightSlide = slides[to + 1];
+      var hiddenSlide = to < index ? slides[to + 2] : slides[to - 2];
+
+      if (leftSlide) leftSlide.style.zIndex = 10;
+      if (midSlide) midSlide.style.zIndex = 9;
+      if (rightSlide) rightSlide.style.zIndex = 10;
+      if (hiddenSlide) hiddenSlide.style.zIndex = 9;
+    }
+
     function slide(to, slideSpeed) {
       // do nothing if already on requested slide
       if (index == to) return;
+
+      if (widthOfSiblingSlidePreview > 0) {
+        stackSlides();
+      }
 
       if (browser.transitions) {
         var direction = Math.abs(index - to) / (index - to); // 1: backward, -1: forward
@@ -159,9 +181,13 @@
       offloadFn(options.callback && options.callback(index, slides[index]));
     }
 
-    function move(index, dist, speed) {
-      translate(index, dist, speed);
-      slidePos[index] = dist;
+    function move(idx, dist, speed) {
+      if (idx == index && dist < 0) {
+        translate(idx, dist - widthOfSiblingSlidePreview, speed);
+      } else {
+        translate(idx, dist, speed);
+      }
+      slidePos[idx] = dist;
     }
 
     function translate(index, dist, speed) {
