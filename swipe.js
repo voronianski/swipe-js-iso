@@ -53,6 +53,7 @@
       parseInt(options.widthOfSiblingSlidePreview, 10) || 0;
     var continuous = (options.continuous =
       options.continuous !== undefined ? options.continuous : true);
+    var to = 1;
 
     function setup() {
       // cache slides
@@ -79,23 +80,22 @@
       while (pos--) {
         var slide = slides[pos];
 
-        if (widthOfSiblingSlidePreview > 0) {
-          slide.style.zIndex = pos === 1 ? 10 : 9;
-        }
-
         slide.style.width = width + 'px';
         slide.setAttribute('data-index', pos);
 
         if (browser.transitions) {
           slide.style.left = pos * -width + widthOfSiblingSlidePreview + 'px';
-          move(pos, index > pos ? -width : index < pos ? width : 0, 0);
+          move(
+            pos,
+            index > pos ? -(width * pos) : index < pos ? width * pos : 0,
+            0
+          );
         }
       }
 
       // reposition elements before and after index
       if (continuous && browser.transitions) {
         move(circle(index - 1), -width, 0);
-        move(circle(index + 1), width, 0);
       }
 
       if (!browser.transitions)
@@ -119,27 +119,9 @@
       return (slides.length + (index % slides.length)) % slides.length;
     }
 
-    function stackSlides() {
-      // when previewing previous/next slide, the right slide zIndex makes last slide show instead of actual next
-      // this could be solved by moving other slides further away, but z-index seemed easier at the time
-      var leftSlide = slides[to - 1];
-      var midSlide = slides[to];
-      var rightSlide = slides[to + 1];
-      var hiddenSlide = to < index ? slides[to + 2] : slides[to - 2];
-
-      if (leftSlide) leftSlide.style.zIndex = 10;
-      if (midSlide) midSlide.style.zIndex = 9;
-      if (rightSlide) rightSlide.style.zIndex = 10;
-      if (hiddenSlide) hiddenSlide.style.zIndex = 9;
-    }
-
     function slide(to, slideSpeed) {
       // do nothing if already on requested slide
       if (index == to) return;
-
-      if (widthOfSiblingSlidePreview > 0) {
-        stackSlides();
-      }
 
       if (browser.transitions) {
         var direction = Math.abs(index - to) / (index - to); // 1: backward, -1: forward
@@ -155,22 +137,27 @@
             to = -direction * slides.length + to;
         }
 
+        to = circle(to);
         var diff = Math.abs(index - to) - 1;
-
-        // move all the slides between index and to in the right direction
-        while (diff--)
+        while (diff--) {
           move(
             circle((to > index ? to : index) - diff - 1),
             width * direction,
             0
           );
+        }
 
-        to = circle(to);
-
+        if (direction == -1) {
+          move(circle(index - 1), width * 2 * direction, slideSpeed || speed);
+        } else {
+          move(circle(index + 1), width * 2, slideSpeed || speed);
+        }
         move(index, width * direction, slideSpeed || speed);
         move(to, 0, slideSpeed || speed);
 
-        if (continuous) move(circle(to - direction), -(width * direction), 0); // we need to get the next in place
+        if (continuous) {
+          move(circle(to - direction), -(width * direction), 0);
+        }
       } else {
         to = circle(to);
         animate(index * -width, to * -width, slideSpeed || speed);
@@ -182,11 +169,7 @@
     }
 
     function move(idx, dist, speed) {
-      if (idx == index && dist < 0) {
-        translate(idx, dist - widthOfSiblingSlidePreview, speed);
-      } else {
-        translate(idx, dist, speed);
-      }
+      translate(idx, dist, speed);
       slidePos[idx] = dist;
     }
 
@@ -405,6 +388,7 @@
                 slidePos[circle(index + 1)] - width,
                 speed
               );
+              move(circle(index - 1), width * -2, speed);
               index = circle(index + 1);
             } else {
               if (continuous) {
@@ -422,6 +406,7 @@
                 slidePos[circle(index - 1)] + width,
                 speed
               );
+              move(circle(index + 1), width * 2, speed);
               index = circle(index - 1);
             }
 
