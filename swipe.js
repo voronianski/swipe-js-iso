@@ -53,6 +53,7 @@
       parseInt(options.widthOfSiblingSlidePreview, 10) || 0;
     var continuous = (options.continuous =
       options.continuous !== undefined ? options.continuous : true);
+    var to = 1;
 
     function setup() {
       // cache slides
@@ -84,14 +85,17 @@
 
         if (browser.transitions) {
           slide.style.left = pos * -width + widthOfSiblingSlidePreview + 'px';
-          move(pos, index > pos ? -width : index < pos ? width : 0, 0);
+          move(
+            pos,
+            index > pos ? -(width * pos) : index < pos ? width * pos : 0,
+            0
+          );
         }
       }
 
       // reposition elements before and after index
       if (continuous && browser.transitions) {
         move(circle(index - 1), -width, 0);
-        move(circle(index + 1), width, 0);
       }
 
       if (!browser.transitions)
@@ -133,22 +137,27 @@
             to = -direction * slides.length + to;
         }
 
+        to = circle(to);
         var diff = Math.abs(index - to) - 1;
-
-        // move all the slides between index and to in the right direction
-        while (diff--)
+        while (diff--) {
           move(
             circle((to > index ? to : index) - diff - 1),
             width * direction,
             0
           );
+        }
 
-        to = circle(to);
-
+        if (direction == -1) {
+          move(circle(index - 1), width * 2 * direction, slideSpeed || speed);
+        } else {
+          move(circle(index + 1), width * 2, slideSpeed || speed);
+        }
         move(index, width * direction, slideSpeed || speed);
         move(to, 0, slideSpeed || speed);
 
-        if (continuous) move(circle(to - direction), -(width * direction), 0); // we need to get the next in place
+        if (continuous) {
+          move(circle(to - direction), -(width * direction), 0);
+        }
       } else {
         to = circle(to);
         animate(index * -width, to * -width, slideSpeed || speed);
@@ -159,9 +168,9 @@
       offloadFn(options.callback && options.callback(index, slides[index]));
     }
 
-    function move(index, dist, speed) {
-      translate(index, dist, speed);
-      slidePos[index] = dist;
+    function move(idx, dist, speed) {
+      translate(idx, dist, speed);
+      slidePos[idx] = dist;
     }
 
     function translate(index, dist, speed) {
@@ -379,6 +388,7 @@
                 slidePos[circle(index + 1)] - width,
                 speed
               );
+              move(circle(index - 1), width * -2, speed);
               index = circle(index + 1);
             } else {
               if (continuous) {
@@ -396,6 +406,7 @@
                 slidePos[circle(index - 1)] + width,
                 speed
               );
+              move(circle(index + 1), width * 2, speed);
               index = circle(index - 1);
             }
 
