@@ -303,7 +303,7 @@
         // if user is not trying to scroll vertically
         if (!isScrolling) {
           // prevent native scrolling
-          event.preventDefault();
+          if (event.cancelable) event.preventDefault();
 
           // stop slideshow
           stop();
