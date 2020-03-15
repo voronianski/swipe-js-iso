@@ -227,6 +227,7 @@
     var start = {};
     var delta = {};
     var isScrolling;
+    var isSwipingEnabled = true;
 
     // setup event capturing
     var events = {
@@ -256,6 +257,9 @@
         if (options.stopPropagation) event.stopPropagation();
       },
       start: function(event) {
+        if (!isSwipingEnabled) {
+          return;
+        }
         var touches = event.touches[0];
 
         // measure start values
@@ -279,6 +283,9 @@
         element.addEventListener('touchend', this, false);
       },
       move: function(event) {
+        if (!isSwipingEnabled) {
+          return;
+        }
         // ensure swiping with one touch and not pinching
         if (event.touches.length > 1 || (event.scale && event.scale !== 1))
           return;
@@ -484,6 +491,12 @@
       stop: function() {
         // cancel slideshow
         stop();
+      },
+      disableSwiping: function() {
+        isSwipingEnabled = false;
+      },
+      enableSwiping: function() {
+        isSwipingEnabled = true;
       },
       getPos: function() {
         // return current index position
